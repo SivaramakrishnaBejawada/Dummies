@@ -5,5 +5,6 @@ RUN apt-get update && apt-get install -y \
 RUN pip3 --version
 RUN pip3 install ansible
 RUN ansible --version
-CMD [ "bash" ]
+ENTRYPOINT ["/bin/bash"]
+CMD ["-c", "while true; do sleep 3600; done"]
 #  then cd /usr/local/bin/ansible
