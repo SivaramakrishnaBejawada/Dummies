@@ -1,0 +1,20 @@
+version: '3'
+services:
+  jenkins:
+    container_name: jenkins
+    image: jenkins/jenkins
+    ports:
+      - "8080:8080"
+    volumes:
+      - $PWD/jenkins_home:/var/jenkins_home
+    networks:
+      - net
+  remote-user:
+    container_name: remote-user
+    image: remote-user
+    build: 
+      context: ubuntu
+    networks:
+      - net
+networks:
+  net:
